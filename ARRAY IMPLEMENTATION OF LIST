@@ -1,0 +1,64 @@
+A list is generally a data structure containing elements of same datatype.
+The elements are arranged in sequential order.Generally, the following operations can be performed in a list.
+
+
+append - adds an element in the end.
+prepend - adds an element in the beginning.
+removeAt - removes an element at the specified index.remove - removes the first occurrence of the element in the list.
+append method is used to add a series of elements to a list. Let us look at an exampleWe will use an array to represent the list.
+
+The append method will accept an element and adds the element to the array in the end.
+Then the size of the list (array) is incremented by 1.The append function is visualized in the image given below.
+
+
+
+
+PREPEND TO A LIST:
+The prepend operation in a list inserts an element at the beginning of the list.
+Let us look at an example.We will use an array to represent the list.
+The prepend function will accept an element and adds the element to the array in the beginning.
+To add the element at the beginning of the array, shift all the elements to their right 
+and then insert the element at 0th index of the array.
+
+he runs scored by a batsman for N balls are passed as input to the program.
+An integer M is also passed input. 
+The program must print the total runs scored by the batsman in the last M balls.
+Implement the prepend function so that the program runs successfully.
+Example Input/Output 1:
+Input:5
+1 2 3 4 5
+Output:
+12
+
+code:
+#include<stdio.h>
+#define MAX 1000
+int list[MAX], size = 0;
+void prepend(int score)
+{ 
+int index; 
+for(index=size-1;
+index>=0; index--) 
+{ 
+list[index+1] = list[index]; 
+} 
+list[0] = score;
+size++;
+}
+int main()
+{ 
+int N, counter, M;
+int totalScore=0, score, index; 
+scanf("%d", &N);
+for(counter=1; counter<=N; counter++) 
+{ 
+scanf("%d", &score); 
+prepend(score);
+} 
+scanf("%d", &M);
+for(index=0; index<M; index++)
+{
+totalScore += list[index];
+} 
+printf("%d", totalScore);
+}
