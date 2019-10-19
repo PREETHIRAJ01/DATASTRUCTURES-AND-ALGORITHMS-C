@@ -1,0 +1,59 @@
+The removeAt operation in a list removes the element at the specified index.
+Let us look at an example.We will use an array to represent the list.
+The removeAt function will accept an index and removes the element at the index in the array.
+To remove the element at the index, 
+shift the elements towards the left and decrement the size of the array by 1.
+
+
+
+
+
+code:
+The runs scored by a batsman for N balls are passed as input to the program.
+An integer M and M indices are also passed as input.
+The program must remove all the elements present at the given indices. 
+Finally, the program prints the total score(after removal).
+Implement the removeAt function so that the program runs successfully.
+Example Input/Output 1:
+Input:5
+2 1 1 0 4
+2
+0 1
+Output:5
+#include<stdio.h>
+#define MAX 1000
+int list[MAX], size = 0;
+
+int removeAt(int x)
+{
+for(int i=x;i<size;i++)
+{
+list[i-1]=list[i]; 
+} 
+size--;
+}
+
+
+
+int main()
+{ 
+int N, counter, M, indexToRemove; 
+int totalScore=0, score, 
+index; scanf("%d", &N); 
+for(index=0; index < N; index++) 
+{
+scanf("%d", &list[index]);
+size++;
+} 
+scanf("%d", &M); 
+for(counter=1; counter<=M; counter++)
+{ 
+scanf("%d", &indexToRemove); 
+removeAt(indexToRemove); 
+} 
+for(index=0; index < size; index++) 
+{
+totalScore += list[index]; 
+} 
+printf("%d", totalScore);
+}
