@@ -1,0 +1,77 @@
+Solve the program using the available function provided in the header 
+fileAvailable functions in the header file (list.h):
+void append(int )
+void removeLast()
+int getSize()
+removeLast function will remove the last element from the list (array).getSize function will return the size of the list (array).
+
+
+CODE:
+The program must accept N integer as input. 
+The program must remove the integers in the list if three consecutive odd integers or three consecutive even 
+integers are given as input.
+Else the program must append the integers in the list. 
+Finally, the program must print the values in the list.
+Fill in the missing lines of code by using the functions
+given in the header file so that the program runs successfully.
+Example Input/Output:
+Input:10
+1 2 3 1 3 4 5 4 6 6
+Output:1 2 4 5
+Explanation:As 3 1 3 are consecutive odd integers and 4 6 6 are consecutive even integers are removed from the list.
+#include <stdio.h>
+#include <stdlib.h>
+#include"list.h"
+int main()
+{ 
+
+int N,val,index,oddCount=0,evenCount=0;
+scanf("%d",&N); 
+for(index=0; index<N; index++) 
+{ 
+scanf("%d",&val);
+append(val); 
+if(val%2==0)
+{ 
+evenCount++; 
+oddCount=0;
+} 
+else if(val%2!=0) 
+{ 
+oddCount++;
+evenCount=0;
+} 
+if(evenCount==3 || oddCount==3) 
+{
+removeLast(); 
+removeLast(); 
+removeLast();
+evenCount=0; 
+oddCount=0; 
+} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(index=0; index < getSize(); index++)
+{ 
+printf("%d ",array[index]);
+} 
+return 0;
+}
